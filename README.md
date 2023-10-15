@@ -2,43 +2,60 @@
 ## MxLogging
 
 Un sistema de logging optimizado para una interpretación clara y una integración sencilla de mensajes. Pensado para mejorar la trazabilidad y el diagnóstico en proyectos de software.
-
+Crea con el mismo nombre del script principal el archivo .log y además lo almacena dentro de la carpeta "logs" (si no existe la crea). 
+No hay que preocuparse en nada más que de escribir el logging.
 
 ## USO de mxlogging:
+- Primero importamos y llamamos a la clase:
+  import mxlogging -> Importamos clase
+  lgn = mxlogging.lgn() -> Llamamos clase
 
-- importar Clase:
+- Añadimos el config del logging:
+  lgn.config(atributos)
+  * Atributos de configuraciones:
+       - time_log = False or None -> crea el archivo log con nombre: nombreScript.log
+       - time_log = True -> crea el log crea el archivo log con nombre: nombreScript_fechaHora.log
+
+- Start prepara el archivo log dentro de la carpeta logs y te añade separación start:
+  lgn.start()
+
+- Añadir mensajes en LOG:
+    - lgn.t() -> Sin añadirle atributos te pone como título la ruta del script, va bien por si quieres anotar cuando cambia de un script a otro.
+    - lgn.s('Mensaje Subtitulo')
+    - lgn.p('Mensaje Párrafo')
+    - lgn.e('Mensaje Error')
+
+- Fin del Log, te añade separación para el final:
+    - lgn.end() 
+
+
+### Ejemplo de uso de mxlogging:
+(Ejecutando script main.py)
 import mxlogging
-
-- Llamando a la case:
 lgn = mxlogging.lgn()
-
-- Es posible añadir la fecha y hora en el nombre del log en las opciones de config, los log los crea automáticamente dentro de una carpeta llamada logs, que si no existe la creará. El nombre del log es automático con el nombre del script que lo llama. Además en config podemos ajustar si queremos script con nombre único o bien con fecha y hora:
-lgn.config(time_log=True) -> Nos creará un log llamado: xxx_fechahora.log
-*Si no llamamos a lgn.config -> Nos creará un log llamado: xxx.log
-
-- start prepara el archivo log dentro de la carpeta logs
+lgn.config(time_log=True)
 lgn.start()
 
-- Título: Marca la ruta del script que llama a lgn, válido para cuando cambias de scripts y así localizar bien por donde pasa.
 lgn.t()
-
-- Subtitulo: Escribiendo en el log.
 lgn.s('Subtitulo')
-
-- Párrafo: Anotaciones dentro de subtitulo, tiene doble espacio para una mejor lectura.
 lgn.p('Parrafo')
 
-- Para la gestión de errores:
-lgn.e('Errores!')
+funcion_main2() # (se llama y ejecuta función del main2.py)
+   #(dentro de main2.py)
+      #lgn.t()
+      #lgn.s('Subtitulo 2')
+      #lgn.p('Parrafo 2')
 
-- Finalizando el logging
+lgn.t()
+lgn.e('Ejemplo Errores!')
 lgn.end()
 
 
-## Ejemplo de un archivo LOG:
+### Ejemplo archivo LOG creado:
 
-15-Oct-23 12:04:43
-===============================================================================
+- 
+15-Oct-23 12:04:43 
+==============================================================================
     ** START LOG: main.py **
 ===============================================================================
 
@@ -60,8 +77,8 @@ lgn.end()
 * Ruta script actual:
     /Users/pistatxos/Desktop/carpeta1/test/main.py
 -------------------------------------------------------------------------
-
-15-Oct-23 12:04:43 ERROR - Errores!
+-
+15-Oct-23 12:04:43 ERROR - Ejemplo rrores!
 15-Oct-23 12:04:43
 ===============================================================================
     ** FIN LOG: main.py **
