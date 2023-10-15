@@ -28,11 +28,7 @@ class lgn:
 
         logging.basicConfig(filename=ruta_nom_logging, level=logging.INFO, format='%(asctime)s%(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
-        mens = f'''
-===============================================================================
-    ** START LOG: {nombre_script} **
-===============================================================================
-'''
+        mens = "="*80 + f"\n    ** START LOG: {nombre_script} **\n" + "="*80
         logging.info(mens)
         
 
@@ -40,11 +36,7 @@ class lgn:
         #ruta_logging = uv.ruta_script()
         ruta_logging = uv.ruta_lanzamientos()
         simbolo = '-'*len(ruta_logging)+'----'
-        mens_up = f'''
-* Ruta script actual:
-    {ruta_logging}
-{simbolo}
-'''
+        mens_up = '* Ruta script actual:\n' + '    {ruta_logging}\n' + {simbolo}
         logging.info(mens_up)
 
     def s(self, mens):
@@ -62,12 +54,6 @@ class lgn:
     def end(self,):
         ruta_logging = uv.ruta_script()
         nombre_script = uv.nombre_script(ruta_logging=ruta_logging)
-        mens = f'''
-===============================================================================
-    ** FIN LOG: {nombre_script} **
-===============================================================================
-
-
-'''
+        mens = "="*80 + f"\n    ** FIN LOG: {nombre_script} **\n" + "="*80 + '\n\n'
         logging.info(mens)
 
