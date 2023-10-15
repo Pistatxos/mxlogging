@@ -30,6 +30,7 @@ No hay que preocuparse en nada más que de escribir el logging.
 
 
 ### Ejemplo de uso de mxlogging:
+```
 (Ejecutando script main.py)
 import mxlogging
 lgn = mxlogging.lgn()
@@ -49,7 +50,7 @@ funcion_main2() # (se llama y ejecuta función del main2.py)
 lgn.t()
 lgn.e('Ejemplo Errores!')
 lgn.end()
-
+```
 
 ### Ejemplo archivo LOG creado:
 ```
