@@ -2,21 +2,3 @@
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[project]
-name = "mxlogging"
-version = "1.0.1"
-authors = [
-    { name="Mario x"},
-]
-description = "Un sistema de logging optimizado para una interpretación clara y una integración sencilla de mensajes. Pensado para mejorar la trazabilidad y el diagnóstico en proyectos de software."
-readme = "README.md"
-license = { file="LICENSE" }
-requires-python = ">=3.7"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
-
-[project.urls]
-"Homepage" = "https://github.com/Pistatxos/mxlogging"

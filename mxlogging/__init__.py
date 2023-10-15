@@ -1,8 +1,8 @@
 
 import logging
-import utils.utils_varios
+from mxlogging.utils import utils_varios
 
-uv = utils.utils_varios.ua()
+uv = utils_varios.ua()
 
 class lgn:
 
@@ -28,13 +28,13 @@ class lgn:
 
         logging.basicConfig(filename=ruta_nom_logging, level=logging.INFO, format='%(asctime)s%(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
-        mens = "="*80 + f"\n    ** START LOG: {nombre_script} **\n" + "="*80
+        mens = "\n" + "="*80 + f"\n    ** START LOG: {nombre_script} **\n" + "="*80
         logging.info(mens)
         
     def t(self,) -> None:
         ruta_logging = uv.ruta_lanzamientos()
-        simbolo = '-'*len(ruta_logging)+'----'
-        mens_up = '* Ruta script actual:\n' + '    {ruta_logging}\n' + {simbolo}
+        simbolo = '    ' + '-'*len(ruta_logging)
+        mens_up = ' * Ruta script actual:\n' + f'    {ruta_logging}\n' + simbolo
         logging.info(mens_up)
 
     def s(self, mens) -> None:
@@ -52,6 +52,6 @@ class lgn:
     def end(self,) -> None:
         ruta_logging = uv.ruta_script()
         nombre_script = uv.nombre_script(ruta_logging=ruta_logging)
-        mens = "="*80 + f"\n    ** FIN LOG: {nombre_script} **\n" + "="*80 + '\n\n'
+        mens = "\n" + "="*80 + f"\n    ** FIN LOG: {nombre_script} **\n" + "="*80 + '\n\n'
         logging.info(mens)
 
