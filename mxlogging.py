@@ -15,7 +15,7 @@ class lgn:
         else:
             self.time_log = True
     
-    def start(self,):
+    def start(self,) -> None:
         ruta_logging = uv.ruta_script()
         nombre_script = uv.nombre_script(ruta_logging=ruta_logging)
         carpeta_logs = uv.carpeta_logs(ruta_logging=ruta_logging, nombre_script=nombre_script)
@@ -31,27 +31,25 @@ class lgn:
         mens = "="*80 + f"\n    ** START LOG: {nombre_script} **\n" + "="*80
         logging.info(mens)
         
-
-    def t(self,):
-        #ruta_logging = uv.ruta_script()
+    def t(self,) -> None:
         ruta_logging = uv.ruta_lanzamientos()
         simbolo = '-'*len(ruta_logging)+'----'
         mens_up = '* Ruta script actual:\n' + '    {ruta_logging}\n' + {simbolo}
         logging.info(mens_up)
 
-    def s(self, mens):
+    def s(self, mens) -> None:
         mens_up = f' - {mens}'
         logging.info(mens_up)
 
-    def p(self, mens):
+    def p(self, mens) -> None:
         mens_up = f'   - {mens}'
         logging.info(mens_up)
 
-    def e(self, mens):
+    def e(self, mens) -> None:
         mens_up = f' ERROR - {mens}'
         logging.info(mens_up)
 
-    def end(self,):
+    def end(self,) -> None:
         ruta_logging = uv.ruta_script()
         nombre_script = uv.nombre_script(ruta_logging=ruta_logging)
         mens = "="*80 + f"\n    ** FIN LOG: {nombre_script} **\n" + "="*80 + '\n\n'
