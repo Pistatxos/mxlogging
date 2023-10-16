@@ -13,8 +13,12 @@ No hay que preocuparse en nada más que de escribir el logging.
 - Añadimos el config del logging:
   lgn.config(atributos)
   * Atributos de configuraciones:
+    - time_log
        - time_log = False or None -> crea el archivo log con nombre: nombreScript.log
        - time_log = True -> crea el log crea el archivo log con nombre: nombreScript_fechaHora.log
+    - ruta_log
+        - ruta_log = None -> crea el archivo en la ruta por default, dentro de una carpeta ./logs en la raiz del script que ejecuta.
+        - ruta_log = "path absoluto donde guardará el archivo .log"
 
 - Start prepara el archivo log dentro de la carpeta logs y te añade separación start:
   lgn.start()
@@ -34,7 +38,7 @@ No hay que preocuparse en nada más que de escribir el logging.
 (Ejecutando script main.py)
 import mxlogging
 lgn = mxlogging.lgn()
-lgn.config(time_log=True)
+lgn.config(time_log=True, ruta_log='/Users/Pistatxos/carpeta1/carpeta2/')
 lgn.start()
 
 lgn.t()

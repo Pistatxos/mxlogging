@@ -3,6 +3,7 @@ import os
 import sys
 import inspect
 from datetime import datetime
+import platform
 
 class ua:
 
@@ -11,7 +12,10 @@ class ua:
         return ruta
     
     def nombre_script(self, ruta_logging):
-        name_script = ruta_logging.split('/')[-1]
+        if platform.system() == 'Windows':
+            name_script = ruta_logging.split('\\')[-1]
+        else:
+            name_script = ruta_logging.split('/')[-1]
         return name_script
     
     def carpeta_logs(self,ruta_logging, nombre_script):
