@@ -18,7 +18,10 @@ No hay que preocuparse en nada más que de escribir el logging.
        - time_log = True -> crea el log crea el archivo log con nombre: nombreScript_fechaHora.log
     - ruta_log
         - ruta_log = None -> crea el archivo en la ruta por default, dentro de una carpeta ./logs en la raiz del script que ejecuta.
-        - ruta_log = "path absoluto donde guardará el archivo .log"
+        - ruta_log = "path absoluto donde guardará el archivo .log" # Nueva ruta.
+    - nombre_log
+        - nombre_log = None -> crea el nombre del archivo por defecto que será el nombre del script.
+        - nombre_log = "nombreDelLog" # Para renombrar el log.
 
 - Start prepara el archivo log dentro de la carpeta logs y te añade separación start:
   lgn.start()
@@ -38,7 +41,9 @@ No hay que preocuparse en nada más que de escribir el logging.
 (Ejecutando script main.py)
 import mxlogging
 lgn = mxlogging.lgn()
-lgn.config(time_log=True, ruta_log='/Users/Pistatxos/carpeta1/carpeta2/')
+lgn.config(time_log=True, 
+            ruta_log='/Users/Pistatxos/carpeta1/carpeta2/',
+            nombre_log='nombreDelLog')
 lgn.start()
 
 lgn.t()
@@ -75,7 +80,7 @@ lgn.end()
 15-Oct-23 12:04:43 * Ruta script actual:
     /Users/pistatxos/Desktop/carpeta1/test/main.py
     ----------------------------------------------
--15-Oct-23 12:04:43 ERROR - Ejemplo rrores!
+-15-Oct-23 12:04:43 ERROR - Ejemplo Errores!
 15-Oct-23 12:04:43
 ===============================================================================
     ** FIN LOG: main.py **

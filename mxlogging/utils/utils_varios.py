@@ -30,5 +30,5 @@ class ua:
         return frame_info.filename
 
     def str_time(self,):
-        nombre = str(datetime.now()).replace(' ','').replace(':','').replace('.','').replace('-','')
+        nombre = str(datetime.now()).replace(' ','_').replace(':','').replace('.','_').replace('-','')
         return nombre

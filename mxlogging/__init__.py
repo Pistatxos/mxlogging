@@ -9,7 +9,7 @@ class lgn:
     def __init__(self) -> None:
         self.config()
 
-    def config(self, time_log=None, ruta_log=None) -> None:
+    def config(self, time_log=None, ruta_log=None, nombre_log=None) -> None:
         if time_log == None:
             self.time_log = False
         else:
@@ -18,7 +18,11 @@ class lgn:
             self.ruta_log = None
         else:
             self.ruta_log = ruta_log
-    
+        if nombre_log == None:
+            self.nombre_log = None
+        else:
+            self.nombre_log = nombre_log
+
     def start(self,) -> None:
         ruta_logging = uv.ruta_script()
         nombre_script = uv.nombre_script(ruta_logging=ruta_logging)
@@ -29,7 +33,11 @@ class lgn:
             carpeta_logs = self.ruta_log
         else:
             carpeta_logs = uv.carpeta_logs(ruta_logging=ruta_logging, nombre_script=nombre_script)
-        nombre = nombre_script.replace('.py','')
+        ## Añadir manual nombre log
+        if self.nombre_log == None:
+            nombre = nombre_script.replace('.py','')
+        else:
+            nombre = str(self.nombre_log).replace('.log','')
         ## Añadir FechaHora al archivo .log
         if self.time_log == True:
             nom_str_time = uv.str_time()
