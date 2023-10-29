@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="mxlogging",
-    version="1.1.0",
+    version="1.1.1",
     author="Mario x",
     description=("Un sistema de logging optimizado para una interpretación clara y "
                  "una integración sencilla de mensajes. Pensado para mejorar la trazabilidad "
