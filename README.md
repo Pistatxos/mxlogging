@@ -13,6 +13,7 @@
 
 ## USO de mxlogging:
 1. Importar y Crear Instancias de la Clase:
+    
     Para empezar, importa la biblioteca y crea una instancia de la clase. Cada instancia corresponde a un registro distinto.
     ```
     import mxlogging 
@@ -24,6 +25,7 @@
     ```
 
 2. Configurar mxlogging:
+
     Cada instancia de registro necesita una configuración. Utiliza el método config para ello.
     ```
     lgn.config(atributos)  # Configura el primer registro
@@ -47,6 +49,7 @@
             - unico_log = True -> Genera un único archivo de log con ambos logging registrados.
 
 3. Uso de las Instancias para Registrar:
+    
     Después de la configuración, puedes utilizar tus instancias (como lgn o lgn2) para registrar start, mensajes, errores o end.
 
     - Start:
